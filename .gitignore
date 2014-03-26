@@ -9,3 +9,8 @@ word2vec/vocab.bin
 word2vec/vectors_and_vocab.bin
 word2vec/text8
 
+docs/proposal/*.pdf
+docs/proposal/*.aux
+docs/proposal/*.blg
+docs/proposal/*.out
+docs/proposal/*.bbl
