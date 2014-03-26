@@ -1,0 +1,11 @@
+word2vec/*.bin
+matlab/external/cvx/cvx_license.dat
+
+word2vec/vectors.txt
+word2vec/vocab.txt
+word2vec/vectors_and_vocab.txt
+word2vec/vectors.bin
+word2vec/vocab.bin
+word2vec/vectors_and_vocab.bin
+word2vec/text8
+
