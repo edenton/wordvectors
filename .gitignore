@@ -1,5 +1,5 @@
 word2vec/*.bin
-matlab/external/cvx/cvx_license.dat
+matlab/external/cvx/*
 
 word2vec/vectors.txt
 word2vec/vocab.txt
