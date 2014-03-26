@@ -1,0 +1,10 @@
+We propose two ways to evaluate the performance of our goals. 
+In [3], the authors release a test set to measure relational similarity. 
+Given a relationship of the form "A is to B as C is to D", the task involves finding D given A,B and C. 
+Mikolov et al. 
+solve this by doing simple vector algebra; they compute the vector representation of A-B+C and search for the nearest neighbor of the resulting vector. 
+Their model outperforms baseline models at this task. 
+We intend to test our performance on this “analogical reasoning” test. 
+Our hypothesis is that the performance on analogical questions would be improved if points that can be well approximated by a lower dimensional hyperplane are projected onto the plane before doing the vector algebra. 
+The second evaluation metric that considers how well the subspaces we find correspond to superclasses in an existing word hierarchy[8]. 
+If the distribution of words in a subspace to superclasses in a hierarchy is largely unimodal, we can conclude that the subspaces do indeed correspond to loosely related concepts. 

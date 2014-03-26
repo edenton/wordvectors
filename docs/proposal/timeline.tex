@@ -1,0 +1,35 @@
+We have several interrelated goals for this project. 
+We divide the time from now until the presentation into three blocks of two weeks each.
+ 
+The first step is to determine whether or not the linear subspace structure does in fact exist. 
+We will test for this hypothesis as follows. 
+ First, we will run a subspace clustering algorithm to get an assignment of points to clusters. 
+Then, for each cluster we will determine the rank K subspace that best fits the point assigned to the cluster and compute the reconstruction error given by the low rank approximation. 
+We will do this for increasing K and plot the reconstruction error as K increases. 
+If the points assigned to this cluster really do lie close to some low dimensional subspace, then we would expect the reconstruction error to drop off at some point for K < the original dimension. 
+We intend to conduct these experiments during the first two of weeks.
+ 
+	Given that the hypothesized structure exists, our next step will be to exploit the structure for some practical purposes. 
+The first step here is to check if the subspaces (clusters) can be associated with semantically or syntactically meaningful concepts. 
+We can use an existing word hierarchy (e.g
+. ) to test for this. 
+ 
+Given a particular subspace, we can compute the percentage of words in the subspaces that fall within a superclass in the existing word hierarchy. 
+Admittedly, we will have to consider a diverse set of categories as potential candidates to map to clusters. 
+However, we think this can be accomplished by a simple a brute force search guided by heuristic. 
+We allot the next two weeks for doing this. 
+If we are in fact able to discover subspaces that are syntactically or semantically meaningful, we can use this structure in several ways. 
+We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within this context. 
+For example, suppose we have several parameterized subspaces, each associated with a different superclass or context. 
+Imagine one is related to fruits and another to electronic devices. 
+If we take the word vector for “apple” we would expect that if it was projected onto the fruit subspace then its nearest neighbors would be “pear”, “orange”, etc and if we project it down onto the electronics subspace its nearest neighbors would be “mac”, “iphone”, “android”, etc. 
+This means that, for words that have an ambiguous meaning,  we could more easily find similar words if we condition on a given context. 
+We can test this hypothesis by generating a set of ambiguous words and and computing nearest neighbors of the word vector after projecting it onto multiple relevant subspaces. 
+This will be conducted in the last two weeks before the final presentation where we will also generate relevant plots and figures to showcase our experiments and analyses. 
+ 
+We also suspect that the low dimensional structure could be exploited to improve performance on the "analogical reasoning" test (described in section 4). 
+As is described in section 1, we know that there exists a rich linear structure in the embedding space since analogical questions are solved by this simple vector offset method. 
+However, the embedding space is likely quite noisy. 
+Our hypothesis is that the performance on analogical questions would be improved if points that can be well approximated by a lower dimensional hyperplane are projected onto the plane before doing the vector algebra. 
+We can evaluate this hypothesis by testing our performance on the analogical reasoning test set using the vector offset method before and after projection. 
+
