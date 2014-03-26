@@ -8,12 +8,13 @@
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{listings}
+\usepackage{hyperref}
 \usepackage{marvosym}
 \usepackage{courier}
 \usepackage{graphicx} % more modern
 \usepackage{subfigure} 
 \usepackage{listings}
-
+\def\etal{{\textit{et~al.~}}}
 
 \begin{document}
 
@@ -29,5 +30,9 @@
 \input{train_data}
 \input{evaluation}
 \input{methods}
+
+\nocite{*}
+\bibliographystyle{splncs}
+\bibliography{bibliography}
 
 \end{document}
