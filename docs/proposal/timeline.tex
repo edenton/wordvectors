@@ -18,7 +18,7 @@ We allot the following two weeks for this task.
 \item Finally, if we discover subspaces that are syntactically or semantically meaningful, we will then attempt to exploit this structure for some practical purposes. 
 We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. We have two ideas we would like to explore in this context. 
 	\begin{enumerate}
-		\item Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
+		\item We believe the subspaces will be helpful in word-sense disambiguation. Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
 If we take the word vector for `apple' we would expect that if it was projected onto the `fruit' subspace then its nearest neighbors would be `pear',`orange', etc. and if we project it down onto the electronics subspace its nearest neighbors would be `mac',`android', etc. 
 For words that have an ambiguous meaning,  we hypothesize that it will be easier to find similar words conditioned on a given context. 
 		\item We also think the analogical reasoning questions detailed in Section \ref{sec:evaluation} might be more accurately answered after projecting words that can be well approximated by a subspace onto the subspace. 
