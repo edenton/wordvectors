@@ -1,13 +1,13 @@
 \section{Evaluation}\label{sec:evaluation}
 
-We propose two ways to evaluate the performance of our goals. 
-In \cite{mikolov3}, the authors release a test set to measure relational similarity. 
-Given a relationship of the form "A is to B as C is to D", the task involves finding D given A,B and C. 
-Mikolov et al. 
-solve this by doing simple vector algebra; they compute the vector representation of A-B+C and search for the nearest neighbor of the resulting vector. 
-Their model outperforms baseline models at this task. 
-We intend to test our performance on this “analogical reasoning” test. 
-We think that the performance on analogical questions would be improved if points that can be well approximated by a lower dimensional hyperplane are projected onto the plane before doing the vector algebra. 
-We can test our performance on the analogical reasoning test set using the vector offset method before and after projection. 
+Goal 2 requires a concrete method of determining whether or not any of the subspaces correspond to meaningful concepts. 
+We propose evaluating a given subspace by considering where each of the words assigned to the subspace lie within the hierarchy.
+If the majority of the words fall under a single superclass then we can conclude that the subspace does indeed correspond to a loosely related concept. 
+We can then compute a score for each subspace based on the depth of the deepest node that contains a significant portion of the words in the subspace, if such a node exists. This metric makes sense since deeper nodes denotes a more specific subclass in the hierarchy. 
 
-Additionally, if the distribution of words in a subspace within superclasses in the WordNet hierarchy is largely unimodal, we can conclude that the subspaces do indeed correspond to loosely related concepts. 
+We can test goal 3(a) this by generating a set of ambiguous words and computing nearest neighbors of the word vector after projecting it onto multiple relevant subspaces. 
+We will evaluate goal 3(b) on a publicly available analogical reasoning dataset \cite{mikolov3}. 
+The dataset consists of both semantic and syntactic questions of the form 'A is to B as C is to D'.
+The task is to find D given A, B and C. 
+As described in section \ref{sec:overview}, this task can be solved with a simple vector algebra in the embedding space.
+We will test to see if performance can be improved by projecting vectors onto subspaces that are good approximations. 

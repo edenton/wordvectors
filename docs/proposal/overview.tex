@@ -1,20 +1,20 @@
 \section{Overview}\label{sec:overview}
 
 Recently, neural network based models for computing continuous vector representations of words have gained popularity. 
-In particular, Mikolov \etal \cite{mikolov1, mikolov2} have proposed two new models for learning a continuous embedding space for words from raw text data. 
-However compared to related work\cite{bengio,mikolov5}, Mikolov’s models are log linear, and thus have a lower computational complexity. 
-Furthermore, their models are trained on billions of words, which is several orders of magnitude larger than anything previously trained.
+In particular, Mikolov \etal \cite{mikolov1, mikolov2} have proposed two new models, called the Continous Bag-of-Words (CBOW) model and the Skip-gram model, for learning a continuous embedding space for words from raw text data. 
+Compared to related work \cite{bengio,mikolov5}, Mikolov’s models are log linear, and thus have a lower computational complexity. 
+Furthermore, their models are trained on datasets that are several orders of magnitude larger than anything previously trained.
  
 Mikolov \etal \cite{mikolov3} showed that the embedding space learned from these models has an interesting linear structure that can be exploited to solve a variety of language tasks. 
 They show that analogical questions of the form `King is to man as Queen is to \_\_\_\_' can be solved by algebraic operations on the word vectors. 
-In this case,they compute the vector (King - man + Queen) and then search for its nearest word vector. 
+In this case, they compute the vector (King - man + Queen) and then search for its nearest word vector. 
 The result should be woman. 
 After training with the CBOW and Skip-gram models, such analogical questions (both semantic and syntactic) are answered well by this vector offset method. 
-They also show that embedding spaces for different languages have similar geometric structure and thus words can be translated from language A to language B by learning a simple linear transformation from the embedding space for language A to the embedding space for language B.
+Mikolov \etal \cite{mikolov4} also show that embedding spaces for different languages  have similar geometric structure and thus words can be translated from language A to language B by learning a simple linear transformation from the embedding space for language A to the embedding space for language B.
  
 In our project we will be exploring various aspects of the linear structure of these embedding spaces. 
 Our hypothesis is that words belonging to a particular superclass, or said differently, words that are all related in a particular context, might have some low dimensional structure. 
-For example, it might be the case that words denoting fruit such as “apple”,”orange”,”pear” and “banana” all lie close to a lower dimensional manifold. 
+For example, it might be the case that words denoting fruit such as 'apple', 'orange', 'pear' and 'banana' all lie close to a lower dimensional manifold. 
 To be clear, we are suggesting something stronger than just the claim that these points should all cluster together. 
 We already know that the latter should be the case. 
 Given the linear structure that appears to be present in the embedding space, we hypothesize that these manifolds will in fact be hyperplanes. 

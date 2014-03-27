@@ -1,7 +1,8 @@
 \section{Training data}\label{sec:train_data}
 
-Open source code to train both the CBOW and the skip-gram architectures have been released by Google [7]. 
-We also have access to 30 million vector representations of words trained on Google’s original training data. 
-In addition to the above, we intend to run the training algorithm on freely available text data such as the entire corpus of wikipedia in order to conduct our experiments. 
-The algorithm trains on sentences preprocessed to have punctuations removed and phrases (such as ice-cream) appended together. 
+Open source code to train both the CBOW and the skip-gram architectures (described in section \ref{sec:methods} have been released by Google [7]. 
+We will try to reproduce Mikolov \etal 's results by running the training algorithm on freely available text data such as the entire corpus of Wikipedia in order to conduct our experiments. 
+We will not be able to match the amount of data that Google has access to and so it will be an interesting experiment in and of itself to see how much the linearity (and more generally, quality) of the embedding space is a function of dataset size. 
+We will train our own models during the first two weeks while we work on goal 1 in parallel.  
+We also have access to 30 million vector representations of words trained on Google`s original training data so we can already start experimenting with these vectors. 
 

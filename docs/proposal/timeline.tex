@@ -2,24 +2,29 @@
 
 We have several interrelated goals for this project. 
 We divide the time from now until the presentation into three blocks of two weeks each.
- 
-The first step is to determine whether or not the linear subspace structure does in fact exist. 
+ \begin{enumerate}
+\item The first step is to determine whether or not the linear subspace structure does in fact exist. 
 We test this hypothesis as follows. 
- After computing a vector representation for words on a corpus, we will use a subspace clustering algorithm assign points to clusters. 
+ After computing a vector representation for words on a corpus, we will use a subspace clustering algorithm to assign points to clusters. 
 For each cluster we determine the rank $K$ subspace that best fits the points assigned to the cluster and compute the reconstruction error given by the low rank approximation. 
-We do this for increasing $K$ and plot the reconstruction error as K increases. 
-If the points assigned to a cluster do lie close to a low dimensional subspace, then we expect the reconstruction error to initially be high but decrease and eventually level off for some $K$ smaller than the original dimension. 
+We do this for increasing $K$ and plot the reconstruction error as $K$ increases. 
+If the points assigned to a cluster do lie close to a low dimensional subspace, then we expect the reconstruction error to initially be high but decrease and eventually level off close to zero for some $K$ smaller than the original dimension. 
 We intend to conduct this experiment during the first two weeks.
  
-Our next step will be to exploit the structure for some practical purposes. 
+\item Our next step will be to exploit the structure for some practical purposes. 
 Here, we intend to check if the subspaces (clusters) can be associated with semantically or syntactically meaningful concepts. 
-We can use an existing word hierarchy, such as WordNet \footnote{\url{http://wordnet.princeton.edu/wordnet/}}, to test this. 
+We can use an existing word hierarchy, such as the heirarchy used in Imagenet \footnote{\url{http://www.image-net.org/}} or more generally  WordNet \footnote{\url{http://wordnet.princeton.edu/wordnet/}}, to test this. 
  
 Given a particular subspace, we can compute the percentage of words in the subspaces that fall within a superclass in the existing word hierarchy. While we will have to consider a diverse set of categories as potential candidates to map to clusters, we think this can be accomplished by a simple a brute force search guided by heuristic. We allot the following two weeks for this task. 
 
-If we can discover subspaces that are syntactically or semantically meaningful, we can use this structure in several ways. If we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. 
-For example, suppose we have several parameterized subspaces, each associated with a different superclass or context. 
-If we take the word vector for `apple' we would expect that if it was projected onto the `fruit' subspace then its nearest neighbors would be `pear',`orange', etc and if we project it down onto the electronics subspace its nearest neighbors would be `mac',`android', etc. 
-For words have ambiguous meaning,  we could more easily find similar words conditioned on a given context. 
-We can test this by generating a set of ambiguous words and and computing nearest neighbors of the word vector after projecting it onto multiple relevant subspaces. 
-This will be conducted in the last two weeks before the final presentation where we will also generate relevant plots and figures to showcase our experiments and analyses. 
+\item If we can discover subspaces that are syntactically or semantically meaningful, we can use this structure in several ways. 
+We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. We have two tests based on this idea.
+	\begin{enumerate}
+		\item Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
+If we take the word vector for `apple' we would expect that if it was projected onto the `fruit' subspace then its nearest neighbors would be `pear',`orange', etc. and if we project it down onto the electronics subspace its nearest neighbors would be `mac',`android', etc. 
+For words that have an ambiguous meaning,  we hypothesize that it will be easier to find similar words conditioned on a given context. 
+		\item We also think the analogical reasoning questions detailed in Section \ref{sec:evaluation} might be more accurately answered after projecting words that can be well approximated by a subspace onto the subspace. 
+	\end{enumerate} 
+	
+This goal will be the focus of the last two weeks before the final presentation where we will also generate relevant plots and figures to showcase our experiments and analyses.
+\end{enumerate}
