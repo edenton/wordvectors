@@ -1,6 +1,7 @@
 \section{Project Goals and Timeline}\label{sec:timeline}
 
-We have several interrelated goals for this project. 
+We have several interrelated goals for this project which we now describe. 
+The details of evaluation for each goal are described in \ref{sec:evaluation}.
 We divide the time from now until the presentation into three blocks of two weeks each.
  \begin{enumerate}
 \item The first step is to determine whether or not the linear subspace structure does in fact exist. 
@@ -11,14 +12,11 @@ We do this for increasing $K$ and plot the reconstruction error as $K$ increases
 If the points assigned to a cluster do lie close to a low dimensional subspace, then we expect the reconstruction error to initially be high but decrease and eventually level off close to zero for some $K$ smaller than the original dimension. 
 We intend to conduct this experiment during the first two weeks.
  
-\item Our next step will be to exploit the structure for some practical purposes. 
-Here, we intend to check if the subspaces (clusters) can be associated with semantically or syntactically meaningful concepts. 
-We can use an existing word hierarchy, such as the heirarchy used in Imagenet \footnote{\url{http://www.image-net.org/}} or more generally  WordNet \footnote{\url{http://wordnet.princeton.edu/wordnet/}}, to test this. 
- 
-Given a particular subspace, we can compute the percentage of words in the subspaces that fall within a superclass in the existing word hierarchy. While we will have to consider a diverse set of categories as potential candidates to map to clusters, we think this can be accomplished by a simple a brute force search guided by heuristic. We allot the following two weeks for this task. 
+\item Our next step will be to check if the subspaces (clusters) can be associated with semantically or syntactically meaningful concepts.
+We allot the following two weeks for this task. 
 
-\item If we can discover subspaces that are syntactically or semantically meaningful, we can use this structure in several ways. 
-We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. We have two tests based on this idea.
+\item Finally, if we discover subspaces that are syntactically or semantically meaningful, we will then attempt to exploit this structure for some practical purposes. 
+We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. We have two ideas we would like to explore in this context. 
 	\begin{enumerate}
 		\item Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
 If we take the word vector for `apple' we would expect that if it was projected onto the `fruit' subspace then its nearest neighbors would be `pear',`orange', etc. and if we project it down onto the electronics subspace its nearest neighbors would be `mac',`android', etc. 

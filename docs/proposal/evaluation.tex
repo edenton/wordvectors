@@ -1,9 +1,10 @@
 \section{Evaluation}\label{sec:evaluation}
 
 Goal 2 requires a concrete method of determining whether or not any of the subspaces correspond to meaningful concepts. 
+We can use an existing word hierarchy, such as the hierarchy used in Imagenet \footnote{\url{http://www.image-net.org/}} or more generally  WordNet \footnote{\url{http://wordnet.princeton.edu/wordnet/}}, to test this. 
 We propose evaluating a given subspace by considering where each of the words assigned to the subspace lie within the hierarchy.
 If the majority of the words fall under a single superclass then we can conclude that the subspace does indeed correspond to a loosely related concept. 
-We can then compute a score for each subspace based on the depth of the deepest node that contains a significant portion of the words in the subspace, if such a node exists. This metric makes sense since deeper nodes denotes a more specific subclass in the hierarchy. 
+We can then compute a score for each subspace based on the depth of the deepest node that contains a significant portion of the words in the subspace, if such a node exists. This metric makes sense since deeper nodes denotes a more specific concept in the hierarchy. 
 
 We can test goal 3(a) this by generating a set of ambiguous words and computing nearest neighbors of the word vector after projecting it onto multiple relevant subspaces. 
 We will evaluate goal 3(b) on a publicly available analogical reasoning dataset \cite{mikolov3}. 
