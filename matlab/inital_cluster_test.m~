@@ -1,0 +1,15 @@
+fid = fopen('../python/wordnet/temp_words.txt');
+words = {};
+line = fgetl(fid);
+while line ~= -1
+    line = strrep(line, ' ', '');
+    line = strsplit(line, ',');
+    words = {words{:}, line{:}};
+    line = fgetl(fid);
+end
+fclose(fid);
+    
+
+
+    
+    
