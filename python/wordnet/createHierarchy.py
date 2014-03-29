@@ -30,9 +30,11 @@ def printVectors(wordlist):
 		associated_words = []
 		for f in data:
 			associated_words += list(set([w for s in f.closure(lambda s:s.hyponyms()) for w in s.lemma_names]))
-		print word,":",",".join(associated_words)
+		#print word,":",",".join(associated_words)
+		print ",".join(associated_words) + ","
+		#print "\n"
 	print "Done"
 
 if __name__ == '__main__':
-	wordlist = ['movies']
+	wordlist = ['movies', 'languages', 'computer', 'fruit', 'animal', 'people', 'vehicle', 'actions', 'food']
 	printVectors(wordlist)

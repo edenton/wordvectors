@@ -1,11 +1,11 @@
-\section{Project Goals and Timeline}\label{sec:timeline}
+\section{Project Goals	 and Timeline}\label{sec:timeline}
 
 We have several interrelated goals for this project which we now describe. 
-The details of how we will evaluate each goal are described in \ref{sec:evaluation}.
+The details of how we will evaluate each goal are described in section \ref{sec:evaluation}.
 We divide the time from now until the presentation into three blocks of two weeks each.
  \begin{enumerate}
 \item The first step is to determine whether or not the linear subspace structure does in fact exist. 
-We test this hypothesis as follows. 
+We will test this hypothesis as follows. 
  After computing a vector representation for words on a corpus, we will use a subspace clustering algorithm to assign points to clusters. 
 For each cluster we determine the rank $K$ subspace that best fits the points assigned to the cluster and compute the reconstruction error given by the low rank approximation. 
 We do this for increasing $K$ and plot the reconstruction error as $K$ increases. 
@@ -16,9 +16,9 @@ We intend to conduct this experiment during the first two weeks.
 We allot the following two weeks for this task. 
 
 \item Finally, if we discover subspaces that are syntactically or semantically meaningful, we will then attempt to exploit this structure for some practical purposes. 
-We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences about similar/dissimilar words that make sense within their context. We have two ideas we would like to explore in this context. 
+We hypothesize that if we were to project the points down onto such spaces, it will be easier to make inferences in a variety of language tasks. 
 	\begin{enumerate}
-		\item We believe the subspaces will be helpful in word-sense disambiguation. Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
+		\item Suppose we have several parameterized subspaces, each associated with a different superclass or context. 
 If we take the word vector for `apple' we would expect that if it was projected onto the `fruit' subspace then its nearest neighbors would be `pear',`orange', etc. and if we project it down onto the electronics subspace its nearest neighbors would be `mac',`android', etc. 
 For words that have an ambiguous meaning,  we hypothesize that it will be easier to find similar words conditioned on a given context. 
 		\item We also think the analogical reasoning questions detailed in Section \ref{sec:evaluation} might be more accurately answered after projecting words that can be well approximated by a subspace onto the subspace. 

@@ -1,6 +1,6 @@
 \section{Methods}\label{sec:methods}
 
-Mikolov et al. proposed two distinct to compute word vectors: the Continuous Bag-of-Words (CBOW) model and the Skip-gram model. 
+Mikolov \etal \cite{mikolov1, mikolov2} proposed two distinct neural network based architectures to compute word vectors: the Continuous Bag-of-Words (CBOW) model and the Skip-Gram model. 
 Both models consist of a projection layer followed by a hierarchical softmax output layer. 
 The only nonlinearity is the exponentiation in the output layer. 
 The two models have slightly different objective. 
@@ -8,7 +8,8 @@ Given a sequence of words, $w_0, \hdots , w_k, \hdots, w_{k+k}$, the CBOW model 
 The input words are represented as one-hot vectors and are all projected down into the same position by averaging the projected vectors. 
 Note that this means all information about location of the words in the sentence is lost (hence the name `bag of words'). 
 The projection layer acts as input to a hierarchical softmax layer that aims to project the remaining word $w_k$. 
-The Skip-gram model takes a single word as input and aims to predict the $k$ previous and $k$ future words. 
+The Skip-Gram model takes a single word as input and aims to predict the $k$ previous and $k$ future words.
+In this case order matters. 
 The performance of both models is comparable.
 
 Subspace clustering is useful in cases where you want to model a collection of data points that belong to a union of several subspaces.
