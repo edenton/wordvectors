@@ -36,5 +36,5 @@ def printVectors(wordlist):
 	print "Done"
 
 if __name__ == '__main__':
-	wordlist = ['movies', 'languages', 'computer', 'fruit', 'animal', 'people', 'vehicle', 'actions', 'food']
+	wordlist = ['fruit']; #['movies', 'languages', 'computer', 'fruit', 'animal', 'people', 'vehicle', 'actions', 'food']
 	printVectors(wordlist)
