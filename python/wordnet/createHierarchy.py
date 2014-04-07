@@ -81,19 +81,24 @@ def getVectors(word):
 	X = np.zeros((len(matched_words),300))
 	db_vec = shelve.open(DBLOC)
 	idx = 0
+	f=open(OUTPUTDIR+word+'.wnword','w')
 	for w in matched_words:
+		f.write(w+"\n")
 		X[idx,:]=np.array(db_vec[w].todense())
 		idx = idx + 1
 	db_vec.close()
+	f.close()
 	
-	print "e) Saving matrix"
+	print "e) Saving matrix in "
+	print OUTPUTDIR+word+'.wnvec'
+	print OUTPUTDIR+word+'.wnword'
 	np.savetxt(OUTPUTDIR+word+'.wnvec',X,'%.8f',delimiter=',')
 	print "f) Done getVectors"
 	return wordnet_instances,matched_words
 
 if __name__ == '__main__':
 	wordlist = ['movies', 'languages', 'computer', 'fruit', 'animal', 'people', 'vehicle', 'actions', 'food']
-	result= getVectors('movies')
+	result= getVectors('vehicle')
 	(a,b) = result
 	print a
 	print b
