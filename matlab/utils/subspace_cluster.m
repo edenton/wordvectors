@@ -1,20 +1,16 @@
-function [Grps] = subspace_cluster(X, K)
+function [grps] = subspace_cluster(X, K)
+% X: D x N matrix of N data points
+% K: number of clusters
 
-lambda=0.001;
-CMat = SparseCoefRecovery(X,0,'Lasso',lambda);
-CKSym = BuildAdjacency(CMat,0);
+lambda = 0.001;
+sparse_coeff = sparse_coef_recovery(X, 0, 'Lasso', lambda);
+affinity_mat = build_adjacency(sparse_coeff, 0);
 
-N = size(CKSym,1);
-%MAXiter = 1000; % Maximum iteration for KMeans Algorithm
-%REPlic = 100; % Replication for KMeans Algorithm
-% Method 2: Random Walk Method
-DKN=( diag( sum(CKSym) ) )^(-1);
-LapKN = speye(N) - DKN * CKSym;
-[uKN,sKN,vKN] = svd(LapKN);
-f = size(vKN,2);
-kerKN = vKN(:,f-K+1:f);
-svalKN = diag(sKN);
-Grps = kmeans(kerKN',K, 'replicates', 20);
+N = size(affinity_mat,1);
 
-
-
+DKN = ( diag( sum(affinity_mat) ) )^(-1);
+LapKN = speye(N) - DKN * affinity_mat;
+[~, ~, vKN] = svd(LapKN);
+f = size(vKN, 2);
+kerKN = vKN(:, f-K+1 : f);
+grps = kmeans(kerKN, K);
