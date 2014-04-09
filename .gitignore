@@ -16,4 +16,5 @@ docs/proposal/*.out
 docs/proposal/*.bbl
 docs/proposal/*.log
 
+*.swp
 *.pyc
