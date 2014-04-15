@@ -18,7 +18,7 @@
 #include <malloc.h>
 
 const long long max_size = 2000;         // max length of strings
-const long long N = 40;                  // number of closest words that will be shown
+const long long N = 3000;                  // number of closest words that will be shown
 const long long max_w = 50;              // max length of vocabulary entries
 
 int main(int argc, char **argv) {
@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
     for (a = 0; a < N; a++) bestd[a] = -1;
     for (a = 0; a < N; a++) bestw[a][0] = 0;
     for (c = 0; c < words; c++) {
-      a = 0;
+        a = 0;
       for (b = 0; b < cn; b++) if (bi[b] == c) a = 1;
       if (a == 1) continue;
       dist = 0;
@@ -130,7 +130,9 @@ int main(int argc, char **argv) {
         }
       }
     }
-    for (a = 0; a < N; a++) printf("%50s\t\t%f\n", bestw[a], bestd[a]);
+    for (a = 0; a < N; a++) {
+      printf("%50s\t\t%f\n", bestw[a], bestd[a]);
+    }
   }
   return 0;
 }
