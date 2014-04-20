@@ -16,7 +16,7 @@ def trainModels(corpus_loc,output_directory,binary_loc):
 	if not os.path.exists(data_dir):
 		os.makedirs(data_dir)
 
-	print "Training Now.
+	print "Training Now."
 
 	
 	uid = 'skip-gram'
