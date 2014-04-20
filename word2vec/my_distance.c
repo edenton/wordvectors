@@ -80,7 +80,8 @@ int main(int argc, char **argv) {
     printf("Out of dictionary word!\n");
     return -1;
   }
-
+  // Print word index that we're searching for
+  fprintf(fout, "%d\n", b + 1 );
   printf("\n                                              Word       Cosine distance\n------------------------------------------------------------------------\n");
   for (a = 0; a < size; a++) vec[a] = 0;
   for (a = 0; a < size; a++) vec[a] += M[a + b * size];
