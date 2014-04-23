@@ -1,7 +1,7 @@
 to_keep = load('generated_mats/analog_word_indices.mat');
 to_keep = to_keep.idx;
 
-fname = '/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNews-vectors-negative300.txt';
+fname = '/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNewsVec.txt';
  
 fid = fopen(fname, 'r');
 
@@ -17,8 +17,7 @@ while line ~= -1
     fprintf(' ------------ %d (%d) -------------\n', counter, idx);
   end
   if any(to_keep == counter)
-    line = strsplit(line, ' ');
-    line = str2double(line(2:end));
+    line = str2double(strsplit(line, ' '));
     X(idx, :) = line;     	
     idx = idx + 1;
   end
@@ -28,3 +27,4 @@ end
 fclose(fid);
 
 save('generated_mats/analog_word_vectors.mat', 'X');
+

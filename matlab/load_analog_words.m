@@ -22,4 +22,4 @@ while line ~= -1
 end
 fclose(fid);
 
-save('generated_mats/analog_word_wordss.mat', 'words');
+save('generated_mats/analog_word_words.mat', 'words');
