@@ -1,6 +1,8 @@
 word2vec/*.bin
 matlab/external/cvx/*
 
+experiments/*
+
 word2vec/vectors.txt
 word2vec/vocab.txt
 word2vec/vectors_and_vocab.txt

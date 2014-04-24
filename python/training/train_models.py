@@ -17,6 +17,9 @@ def trainModels(corpus_loc,output_directory,binary_loc):
 		os.makedirs(data_dir)
 
 	print "Training Now."
+	print "CORPUS : ",corpus_loc
+	print "OUTPUTDIR: ",output_directory
+	print "BINLOC: ",binary_loc
 
 	
 	uid = 'skip-gram'
@@ -34,8 +37,8 @@ def trainModels(corpus_loc,output_directory,binary_loc):
 	print "Done Training.."
 
 if __name__== '__main__':
-	CORPUSLOC = '/misc/vlgscratch3/FergusGroup/rahul/corpus/FINAL_CORPUS'
+	CORPUSLOC = '/misc/vlgscratch3/FergusGroup/rahul/corpus/BIG_CORPUS_CLEAN'
 	TEST_CORPUSLOC = '/misc/vlgscratch3/FergusGroup/rahul/corpus/raw_data/text8'
 	OUTPUTDIR  = '/misc/vlgscratch3/FergusGroup/rahul/trainingOUTPUTDIR'
 	BINARYLOC  = '/home/rahul/courses/mlcs/wordvectors/word2vec/word2vec'
-	trainModels(TEST_CORPUSLOC,OUTPUTDIR,BINARYLOC)
+	trainModels(CORPUSLOC,OUTPUTDIR,BINARYLOC)
