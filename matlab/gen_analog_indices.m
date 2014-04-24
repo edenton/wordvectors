@@ -1,4 +1,4 @@
-out_fname = 'analogy_related_word_indices2.txt';
+out_fname = 'analogy_related_word_indices_500.txt';
 fname = '../word2vec/questions-words.txt';
 fid = fopen(fname, 'r');
 
