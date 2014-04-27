@@ -1,6 +1,6 @@
 word2vec/*.bin
 matlab/external/cvx/*
-
+/home/rahul/courses/mlcs/wordvectors/matlab/generated_mats/pairs_sample.bin
 experiments/*
 
 word2vec/vectors.txt
