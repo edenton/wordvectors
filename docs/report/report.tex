@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage[top=.5in, bottom=1in, left=.5in, right=.5in]{geometry}
+\fontsize{15}{2} 
+\allowdisplaybreaks[1]
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{marvosym}
+\usepackage{courier}
+\usepackage{graphicx} % more modern
+\usepackage{subfigure} 
+\usepackage{listings}
+\def\etal{{\textit{et~al.~}}}
+
+\begin{document}
+
+\vspace*{8cm}
+
+\centerline{\sc \Large Machine Learning and Computational Statistics: Project Report}
+
+\vspace{1cm}
+
+\centerline{\sc \small Emily Denton (eld297)  \& Rahul Gopalkrishnan (rg2451)}
+         
+\clearpage 
+
+\input{overview}
+\input{timeline}
+\input{train_data}
+\input{methods}
+\input{evaluation}
+
+\nocite{*}
+\bibliographystyle{splncs}
+\bibliography{bibliography}
+
+\end{document}
