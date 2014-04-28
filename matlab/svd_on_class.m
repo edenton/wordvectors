@@ -1,6 +1,6 @@
 function [errors, X] = svd_on_class(class)
 % Compute the reconstrction error for uncreasing rank for a single class. It is assumed that the
-% vector file fort he class exists
+% vector file for the class exists
 
 		fname = sprintf('/misc/vlgscratch3/FergusGroup/rahul/vectors/custVectors/%s.wnvec', class);
 

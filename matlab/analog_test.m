@@ -1,5 +1,5 @@
 clear all;
-load generated_mats/all_google_words.mat
+load generated_mats/analog_question_indices.mat
 fid = fopen('/misc/vlgscratch3/FergusGroup/denton/all_google_vectors.bin', 'rb');
 X = fread(fid, [3000000, 300], 'single');
 X = X'; % D x N
@@ -11,13 +11,15 @@ correct = 0;
 total = 0;
 K = 5;
 iter = 0;
+ll = 1;
 normalized_X = bsxfun(@rdivide, X, sqrt(sum( X .^2 )));
 while line ~= -1
     line = strsplit(line, ' ');
     if line{1} ~= ':'
         iter = iter + 1;
         % Do original predition using nearest neighbours search (using cosine distance)
-        line_indices = find(ismember(words, line));
+        line_indices = analog_question_indices(ll, :);
+        ll = ll + 1;
         answer_idx = line_indices(3);
         query_indices = line_indices([1, 2, 4]);
         query = X(:, query_indices);

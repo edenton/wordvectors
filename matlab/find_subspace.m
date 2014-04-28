@@ -1,6 +1,6 @@
 function [proj_mat, Q] = find_subspace(X, rank)
      
-  tolerance = 0.1;
+  tolerance = 0.15;
   % Compute SVD decomposition
   [u, s, v] = svd(X);
   

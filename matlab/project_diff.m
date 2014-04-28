@@ -4,12 +4,12 @@ load generated_mats/all_google_words.mat
 fid = fopen('/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNewsVec.bin', 'rb');
 
 N = 3000000;
-S = 300;
-X = fread(fid, [N S], 'single');
+vecdim = 300;
+X = fread(fid, [N vecdim], 'single');
+
+
 
 %Get interesting indices
-%(for now, randomly subsample some indices)
-N_small = 1000;
 
 %the number of principle components we expect to see
 k = 3;
@@ -21,15 +21,16 @@ k = 3;
 %It randomly samples vectors from up to k different sections in the
 %analogical reasoning test
 
-idx_final = getIndicesFromAnalogicalReasoning(k,N_small);
+idx_final = getIndicesFromAnalogicalReasoning(k,2000);
 %idx = randi(N,N_small,1);
 
 
 %Generate all pairs
-X_sub = X(idx,:);
+X_sub = X(idx_final,:);
 
+N_small = size(X_sub,1);
 %preallocate for speed
-X_pairs = zeros(N_small*N_small,S);
+X_pairs = zeros(N_small*N_small,vecdim);
 
 t = 1;
 for i=1:N_small
@@ -38,6 +39,7 @@ for i=1:N_small
             fprintf('Processed <%d>\n',t);
         end 
         X_pairs(t,:) = X_sub(i,:)-X_sub(j,:);
+
         t = t +1;
         X_pairs(t,:) = X_sub(j,:)-X_sub(i,:);
         t = t+1;
@@ -47,10 +49,10 @@ for i=1:N_small
     end
 end
 X_pairs = X_pairs(1:t-1,:);
+X_pairs = bsxfun(@rdivide,X_pairs,sqrt(sum(X_pairs.^2,2)) )
+[U, S, V] = svds(X_pairs,k);
 
-[U, S, V] = svds(X_pairs_t,3);
-
-
-
+proj = U*S;
+save('./generated_mats/proj_3d_pairs.mat','proj');
 
 

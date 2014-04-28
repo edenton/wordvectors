@@ -24,14 +24,14 @@ def trainModels(corpus_loc,output_directory,binary_loc):
 	
 	uid = 'skip-gram'
 	print uid
-	cmd = 'time '+binary_loc+' -train '+corpus_loc+' -output-orig '+model_dir+uid+'-vectors_and_vocab.bin -output-vector '+data_dir+uid+'-vectors.txt -output-vocab '+data_dir+uid+'-vocab.txt -cbow 0 -size 300 -window 10 -negative 0 -hs 1 -sample 1e-3 -threads 15 -binary 1' 
+	cmd = 'time '+binary_loc+' -train '+corpus_loc+' -output-orig '+model_dir+uid+'-vectors_and_vocab.bin -output-vector '+data_dir+uid+'-vectors.txt -output-vocab '+data_dir+uid+'-vocab.txt -cbow 0 -size 300 -window 10 -negative 0 -hs 1 -sample 1e-3 -threads 15 -binary 0' 
 	print "Training Skip Gram"
 	os.system(cmd)
 
 
 	uid = 'cbow'
 	print uid
-	cmd = 'time '+binary_loc+' -train '+corpus_loc+' -output-orig '+model_dir+uid+'-vectors_and_vocab.bin -output-vector '+data_dir+uid+'-vectors.txt -output-vocab '+data_dir+uid+'-vocab.txt -cbow 1 -size 300 -window 5 -negative 0 -hs 1 -sample 1e-3 -threads 15 -binary 1' 
+	cmd = 'time '+binary_loc+' -train '+corpus_loc+' -output-orig '+model_dir+uid+'-vectors_and_vocab.bin -output-vector '+data_dir+uid+'-vectors.txt -output-vocab '+data_dir+uid+'-vocab.txt -cbow 1 -size 300 -window 5 -negative 0 -hs 1 -sample 1e-3 -threads 15 -binary 0' 
 	print "Training CBOW"
 	os.system(cmd)
 	print "Done Training.."
