@@ -24,6 +24,7 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(k,N_small)
 
   %randomly pick k of the sections
   sections_picked = randi(N_sec,k,1);
+  sections_picked = [1:14];
   %specify sections to pick
   %sections_picked = [1];
   %k=1;

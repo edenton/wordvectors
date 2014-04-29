@@ -35,11 +35,7 @@ X_pairs = zeros(N_small*N_small,vecdim);
 t = 1;
 for i=1:N_small
     for j=i+1:N_small
-        if mod(t,10000)==0
-            fprintf('Processed <%d>\n',t);
-        end 
         X_pairs(t,:) = X_sub(i,:)-X_sub(j,:);
-
         t = t +1;
         X_pairs(t,:) = X_sub(j,:)-X_sub(i,:);
         t = t+1;
@@ -49,10 +45,12 @@ for i=1:N_small
     end
 end
 X_pairs = X_pairs(1:t-1,:);
-X_pairs = bsxfun(@rdivide,X_pairs,sqrt(sum(X_pairs.^2,2)) )
-[U, S, V] = svds(X_pairs,k);
+X_pairs = bsxfun(@rdivide,X_pairs,exp(-100)+sqrt(sum(X_pairs.^2,2)) );
+kmeans_idx = kmeans(X_pairs,k);
+
+[U, S, V] = svds(X_pairs,3);
 
 proj = U*S;
-save('./generated_mats/proj_3d_pairs.mat','proj');
+save('./generated_mats/proj_3d_pairs.mat','proj','kmeans_idx');
 
 
