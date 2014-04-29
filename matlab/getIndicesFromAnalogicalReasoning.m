@@ -1,9 +1,6 @@
-function [idx_final] = getIndicesFromAnalogicalReasoning(k,N_small)
+function [idx_final] = getIndicesFromAnalogicalReasoning(sections_picked,N_small)
 
   load('./generated_mats/analog_question_indices.mat')
-
-  idx_final = zeros(N_small,1);
-  t = 1;
 
   N_sec = 14;
   loc{1}='./qwSections/questions-capital-common-countries.sec';
@@ -23,11 +20,14 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(k,N_small)
 
 
   %randomly pick k of the sections
-  sections_picked = randi(N_sec,k,1);
-  sections_picked = [1:14];
+  %sections_picked = randi(N_sec,k,1);
+  %sections_picked = [1];
   %specify sections to pick
   %sections_picked = [1];
   %k=1;
+
+  idx_final = zeros(N_small,1);
+  t = 1;
 
   line_num = 1;
   for i=1:14
@@ -36,7 +36,8 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(k,N_small)
      doc_size = max(size(doc{1}));
      all_idx = analog_question_indices(line_num:line_num+doc_size-1,:);
      indices_from_section = unique(all_idx(:));
-     
+     line_num = line_num + doc_size;
+
      if sum(sections_picked==i)==1
         fprintf('Size %d: %d Unique: %d\n',i,max(size(doc{1})),size(indices_from_section,1));
         idx_final(t:t+size(indices_from_section,1)-1) = indices_from_section;
@@ -45,7 +46,6 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(k,N_small)
 
   end
 
-  %idx_final(t:end) = randi(300000,size(idx_final(t:end)));
   idx_final = idx_final(1:t-1);
 
 end
