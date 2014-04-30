@@ -131,26 +131,35 @@ idx_values = idx_values(1:t-1,:);
 X_pairs = bsxfun(@rdivide,X_pairs,exp(-100)+sqrt(sum(X_pairs.^2,2)) );
 %kmeans_idx = kmeans(X_pairs,k);
 
-[U, S, V] = svds(X_pairs,2);
+[U, S, V] = svds(X_pairs,5);
 
 proj_all = U*S;
 
 
+
+
+
+
+
+
+
+
+
 %computing distances as the sum of dot products from eigenvectors
 i = 1;
-dist_from_evec = zeros(size(X_pairs,1),1);
+dist_from_evec = zeros(5,1);
 for t=1:size(X_pairs,1)
-    for dim = 1:size(V,2)
-        dist_from_evec(t) = dist_from_evec(t) + abs(X_pairs(t,:)*V(:,dim));
-        %dist_from_evec(t) = dist_from_evec(t) + (X_pairs(t,:)*V(:,dim));
-    end
-    dist_from_evec(t) = abs(dist_from_evec(t));
+    for dim = 1:size(V,2,)
+    a = X_pairs(t,:)*V(:,1);
+    b = X_pairs(t,:)*V(:,2);
+    c = X_pairs(t,:)*V(:,3);
+    %dist_from_evec(t) = abs(a+b+c);
+    = abs(a)+abs(b)+abs(c);
 end
 
 thr = min(median(dist_from_evec),mean(dist_from_evec));
 i = 1;
 idx_cluster = zeros(5,3);
-clearvars proj
 for t=1:size(X_pairs,1)
     if dist_from_evec(t)<=thr
         idx_cluster(i,1)=dist_from_evec(t);
@@ -164,7 +173,7 @@ proj = proj(1:i-1,:);
 save('./generated_mats/proj_3d_pairs.mat','proj','idx_cluster');
 idx_sample = [1:size(proj,1)]';
 for i=1:size(idx_sample,1)
-    fprintf('Dist: %.9f W_1 - W_2 : %s - %s\n',idx_cluster(idx_sample(i),1),words{idx_cluster(idx_sample(i),2)},words{idx_cluster(idx_sample(i),3)});
+    fprintf('Dist: %.4f W_1 - W_2 : %s - %s\n',idx_cluster(idx_sample(i),1),words{idx_cluster(idx_sample(i),2)},words{idx_cluster(idx_sample(i),3)});
 end
 
 

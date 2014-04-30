@@ -1,4 +1,4 @@
-function [idx_final] = getIndicesFromAnalogicalReasoning(sections_picked,N_small)
+function [idx_final_col1,idx_final_col2] = getIndicesFromAnalogicalReasoning(sections_picked)
 
   load('./generated_mats/analog_question_indices.mat')
 
@@ -26,8 +26,10 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(sections_picked,N_small
   %sections_picked = [1];
   %k=1;
 
-  idx_final = zeros(N_small,1);
-  t = 1;
+  idx_final_col1 = zeros(500,1);
+  idx_final_col2 = zeros(500,1);
+  t_1 = 1;
+  t_2 = 1;
 
   line_num = 1;
   for i=1:14
@@ -35,17 +37,23 @@ function [idx_final] = getIndicesFromAnalogicalReasoning(sections_picked,N_small
      
      doc_size = max(size(doc{1}));
      all_idx = analog_question_indices(line_num:line_num+doc_size-1,:);
-     indices_from_section = unique(all_idx(:));
+     temp_1 = [all_idx(:,1)' all_idx(:,3)'];
+     indices_from_section_col1 = unique(temp_1)';
+     temp_2 = [all_idx(:,2)' all_idx(:,4)'];
+     indices_from_section_col2 = unique(temp_2)';
+     
      line_num = line_num + doc_size;
 
      if sum(sections_picked==i)==1
-        fprintf('Size %d: %d Unique: %d\n',i,max(size(doc{1})),size(indices_from_section,1));
-        idx_final(t:t+size(indices_from_section,1)-1) = indices_from_section;
-        t = t +size(indices_from_section,1);
+        fprintf('Size %d: %d Unique: %d %d\n',i,max(size(doc{1})),size(indices_from_section_col1,1),size(indices_from_section_col2,1));
+        idx_final_col1(t_1:t_1+size(indices_from_section_col1,1)-1) = indices_from_section_col1;
+        idx_final_col2(t_2:t_2+size(indices_from_section_col2,1)-1) = indices_from_section_col2;
+        t_1 = t_1 +size(indices_from_section_col1,1);
+        t_2 = t_2 +size(indices_from_section_col2,1);
      end
 
   end
 
-  idx_final = idx_final(1:t-1);
-
+  idx_final_col1 = idx_final_col1(1:t_1-1);
+  idx_final_col2 = idx_final_col2(1:t_2-1);
 end
