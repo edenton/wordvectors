@@ -98,7 +98,7 @@ def getVectors(word):
 
 if __name__ == '__main__':
 	wordlist = ['movies', 'languages', 'computer', 'fruit', 'animal', 'people', 'vehicle', 'actions', 'food']
-	result= getVectors('vehicle')
+	result= getVectors('sports')
 	(a,b) = result
 	print a
 	print b

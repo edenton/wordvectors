@@ -77,6 +77,46 @@ One of the goals of this project is to automatically discover relationships betw
 \label{fig:offsetProj}
 \end{figure}
 
+\subsection{Low rank approximations of word vectors}
+Ideally, we would like to be able to fit a variety of subspaces to all the word vectors. However, in practice the number of word vectors in our embedding space may be too large to afford running a subspace clustering algorithm on the entire set. To with this problem, we generate sets of words related by a high level concept and explore how well the word vectors associated with the set is approximated by a rank $k$ subspace, for varying $k$. If the set of vectors is well approximated by a rank $k$ subspace, for $k$ smaller than the original dimension of the space, then we can conclude the set of word vectors does in fact have linear low dimensional structure. Figure \ref{fig:svdOnClass} shows rank versus the $L2$ approximation error for word vectors in a variety of classes. As the figure shows, some classes are much more amenable to low rank approximations than others. This may partially be a product of our method generating related words (currently being done via a search of the WordNet hierarchy). 
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.65\textwidth]{./images/svd_per_class.eps}
+\caption{Rank vs. $L2$ error for different sets of word vectors}
+\label{fig:svdOnClass}
+\end{figure}
+
+\subsection{Exploring planar structure of analogical pairs}
+In an attempt to gain some insight into the embedding space we did the following: 
+\begin{enumerate}
+  \item Take 3 words from one of the cases in the analogical reasoning test set and compute the subspace that best fits the corresponding word vectors.
+  \item Project all word vectors onto this plane.
+  \item Throw away all vectors greater than some threshold away from the plane (in the examples plotted below we kept only the closest 20 vectors)
+  \item Plot the remaining word vectors projected onto the plane, coded (by size where large indicates a greater distance) based on their distance from the plane. 
+  \item Highlight points that would be predicted (using the projected vectors) within the top $k$ (we used $k = 5$) using the vector offset method.
+\end{enumerate}
+
+\begin{figure}[t]
+\centering
+\subfigure[Greece : Athens - Thailand : Bangkok]{
+\includegraphics[width=.45\textwidth]{./images/greece_athens_thailand_bangkok.eps}
+}
+\subfigure[Greece : Athens - Japan : Tokyo]{
+\includegraphics[width=.45\textwidth]{./images/greece_athens_japan_tokyo.eps}
+}
+
+\subfigure[Greece : Athens - Russia : Moscow]{
+\includegraphics[width=.45\textwidth]{./images/greece_athens_russia_moscow.eps}
+}
+\subfigure[Greece : Athens - Egypt : Cairo]{
+\includegraphics[width=.45\textwidth]{./images/greece_athens_egypt_cairo.eps}
+}
+\caption{Analogical reasoning word vectors projected onto 2D plane}
+\label{fig:offsetProj}
+\end{figure}
+
 \clearpage
 
 \section{Conclusion}

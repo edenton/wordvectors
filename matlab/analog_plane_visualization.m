@@ -2,8 +2,9 @@ clear all;
 load generated_mats/analog_word_words.mat
 load generated_mats/analog_word_vectors.mat
 X = X'; % D x N
+normalized_X = bsxfun(@rdivide, X, sqrt(sum( X .^2 )));
 
-to_keep = 25;
+to_keep = 20;
 fname = '../word2vec/questions-words.txt';
 fid = fopen(fname, 'r');
 line = fgetl(fid);
@@ -29,7 +30,7 @@ while line ~= -1
         pred_approx = proj_mat * pred;
         
         % Compute distances from answer
-        dist_from_plane = sum((X - Xapprox) .^ 2) ./ sum((X) .^ 2); 
+        dist_from_plane = sqrt(sum((X - Xapprox) .^ 2)) ./ sqrt(sum((X) .^ 2)); 
         [sorted_dist, sorted_idx] = sort(dist_from_plane, 'ascend');
         on_plane_indices = sorted_idx(1:to_keep);
         if sum(on_plane_indices == answer_idx) == 0
@@ -54,11 +55,11 @@ while line ~= -1
         K = 5;
         k = 1;
         kk = 1;
-        while k <= 5
+        while k <= K
            if kk > length(closest_idx)
                break
            end
-           if sum(sorted_idx(closest_idx(kk)) == line_indices)
+           if sum(sorted_idx(closest_idx(kk)) == query_indices)
                kk = kk + 1;
                continue
            end
@@ -66,6 +67,12 @@ while line ~= -1
            k = k + 1;
            kk = kk + 1;
         end
+%         ii = 1;
+%         for kk = 1 : length(dist_to_ans)
+%            if sorted(kk) < 0.005 && sum(sorted_idx(closest_idx(kk)) == query_indices) == 0
+%                scatter(Xapprox_2D(1, closest_idx(kk)), Xapprox_2D(2, closest_idx(kk)), closest_idx(kk)*scale*2, 'ro', 'filled');
+%            end
+%         end
        
         for p = 1 : size(Xapprox_2D, 2)
             if sum(sorted_idx(p) == line_indices)
@@ -73,6 +80,7 @@ while line ~= -1
             end
             scatter(Xapprox_2D(1, p), Xapprox_2D(2, p), scale*p, 'ko', 'filled');
         end   
+        plot([0, pred_2D(1, :)], [0, pred_2D(2, :)])
         scatter(query_2D(1, :), query_2D(2, :), 40, 'r*');
         text(query_2D(1, 1) + .05, query_2D(2, 1), sprintf('%s (Q)', words{query_indices(1)}), 'FontSize', 15);
         text(query_2D(1, 2) + .05, query_2D(2, 2), sprintf('%s (Q)', words{query_indices(2)}), 'FontSize', 15);
@@ -83,4 +91,5 @@ while line ~= -1
     end
     line = fgetl(fid);
 end
+fclose(fid);
     

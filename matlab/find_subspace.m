@@ -1,4 +1,5 @@
 function [proj_mat, Q] = find_subspace(X, rank)
+    % X should be D x N matrix
      
   tolerance = 0.15;
   % Compute SVD decomposition
@@ -9,6 +10,7 @@ function [proj_mat, Q] = find_subspace(X, rank)
     for k = 1 : size(X, 1)
         Xapprox = u(:, 1:k) * s(1:k, 1:k) * v(:, 1:k)';
         err = norm(X(:) - Xapprox(:)) / norm(X(:));
+        fprintf('Approximation error with rank %d : ||X - Xapprox|| / ||X|| = %f\n', k, err);
         if err < tolerance
             break
         end
@@ -18,7 +20,7 @@ function [proj_mat, Q] = find_subspace(X, rank)
   end
   Xapprox = u(:, 1:k) * s(1:k, 1:k) * v(:, 1:k)';
   err = norm(X(:) - Xapprox(:)) / norm(X(:));
-  fprintf('Approximation error with rank %d : ||X - Xapprox|| / ||X|| = %f\n', k, err);
+  %fprintf('Approximation error with rank %d : ||X - Xapprox|| / ||X|| = %f\n', k, err);
 
   % Find a basis for the subspace the approximated points lie on
   Q = orth(Xapprox);

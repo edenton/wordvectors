@@ -9,17 +9,17 @@ function [errors, X] = svd_on_class(class)
 		end
 		X = vectors';
 		[D, N] = size(X);
-
+        fprintf('\nprocessing %s (size %d)\n', class, N);
 		[u, s, v] = svd(X);
 
 		errors = [];
-		for k = 1 : D
+		for k = 1 : min(D, N)
 			Xapprox = u(:, 1:k) * s(1:k, 1:k) * v(:, 1:k)';
 			err = norm(X(:) - Xapprox(:)) / norm(X(:));
 			errors(end+1) = err;
 			if errors(end) < 0.1 && errors(end-1) >= 0.1
-				fprintf('------------------- rank %d ------------------------\n', k);
+				fprintf('--- rank %d ---\n', k);
 			end
-			fprintf('%f\n', err);
+			%fprintf('%f\n', err);
 		end
 end

@@ -1,0 +1,46 @@
+clear all;
+fid = fopen('/misc/vlgscratch3/FergusGroup/denton/all_google_vectors.bin', 'rb');
+X = fread(fid, [3000000, 300], 'single');
+X = X'; % D x N
+fclose(fid);
+
+load generated_mats/all_google_words.mat
+
+load generated_mats/analog_question_indices.mat;
+analog_question_indices = analog_question_indices(1:500, :);
+idx_to_keep = unique(analog_question_indices(:));
+
+XX = X(:, idx_to_keep);
+
+[D, N] = size(XX);
+offsets = zeros(D, N*N - N);
+idx = 1;
+
+for n1 = 1 : N
+    for n2 = 1 : N
+        if n1 ~= n2
+            offsets(:, idx) = XX(:, n1) - XX(:, n2);
+            idx = idx+1;
+        end
+    end
+end
+rp = randperm(size(offsets, 2));
+normalized_offsets = bsxfun(@rdivide, offsets, sqrt(sum(offsets.^2)));
+normalized_XX = bsxfun(@rdivide, XX, sqrt(sum(XX.^2)));
+normalized_XX = proj_mat * normalized_XX;
+
+[u, s, v] = svd(normalized_offsets');
+[proj_mat, Q] = find_subspace(normalized_offsets, 5);
+pc1 = v(:, 1);
+
+for n1 = 1 : N
+    for n2 = 1 : N
+        if n1 ~= n2
+             vec = normalized_XX(:, n1) - normalized_XX(:, n2);
+             cos_dist = 1 - vec' * pc1 / (norm(vec)*norm(pc1));
+             if cos_dist < 0.3
+                fprintf('%s \t\t --- \t\t %s\t (%f)\n', words{idx_to_keep(n1)}, words{idx_to_keep(n2)}, cos_dist); 
+             end
+        end
+    end
+end
