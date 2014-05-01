@@ -5,4 +5,4 @@ all:
 	open report.pdf
 
 clean:
-	rm *.aux *.brf *.pdf *.log *.bbl *.blg *.dvi *.ps *.out
+	rm *.aux *.brf *.pdf *.log *.bbl *.blg *.dvi *.ps *.out *.fdb_latexmk *.synctex.gz
