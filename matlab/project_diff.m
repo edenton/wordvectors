@@ -1,14 +1,13 @@
 %Load Data : Do once
 clear all;
-load generated_mats/all_google_words.mat
-fid = fopen('/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNewsVec.bin', 'rb');
+%load generated_mats/all_google_words.mat
 
+words = textscan(fopen('/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNewsWords.txt'),'%s'); 
+
+fid = fopen('/misc/vlgscratch3/FergusGroup/rahul/vectors/GoogleNewsVec.bin', 'rb');
 N = 3000000;
 vecdim = 300;
 X = fread(fid, [N vecdim], 'single');
-
-
-
 
 
 
@@ -33,7 +32,7 @@ loc{11}='./qwSections/questions-gram6-nationality-adjective.sec';
 loc{12}='./qwSections/questions-gram7-past-tense.sec';
 loc{13}='./qwSections/questions-gram8-plural.sec';
 loc{14}='./qwSections/questions-gram9-plural-verbs.sec';
-sections = [1];
+sections = [1,2,3];
 
 %Return the indices in the word vectors corresponding to k sections in the
 %question reasoning task. A fifth of the vectors returned contain noise.
@@ -42,11 +41,14 @@ sections = [1];
 %It randomly samples vectors from up to k different sections in the
 %analogical reasoning test
 
-[idx_final_col1,idx_final_col2] = getIndicesFromAnalogicalReasoning(sections);
+[idx_final_col1,idx_final_col2,indices] = getIndicesFromAnalogicalReasoning(sections);
 %idx = randi(N,N_small,1);
 
-
-
+for sect = 1:max(size(sections))
+    for i=1:size(indices{sect},1)
+        fprintf('%s - %s\n',words{indices{sect}(i,1)},words{indices{sect}(i,2)})
+    end
+end
 
 
 
@@ -83,6 +85,9 @@ X_pairs = bsxfun(@rdivide,X_pairs,exp(-100)+sqrt(sum(X_pairs.^2,2)) );
 proj_all = U*S;
 
 
+
+
+save('./generated_mats/proj_3d_pairs.mat','proj_all','indices','idx_values');
 
 
 
