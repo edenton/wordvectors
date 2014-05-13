@@ -1,0 +1,184 @@
+Computing accuracy:
+Results from  /misc/vlgscratch3/FergusGroup/rahul/trainingOUTPUTDIR/model/cbow.db
+
+Section :  questions-capital-common-countries  Section Size:  506
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.0  %
+Test Accuracy: Top  2  Accuracy=  15.2173913043  %
+Test Accuracy: Top  3  Accuracy=  35.3754940711  %
+Test Accuracy: Top  4  Accuracy=  45.8498023715  %
+Test Accuracy: Top  5  Accuracy=  52.1739130435  %
+Test Accuracy: Top  6  Accuracy=  55.3359683794  %
+Test Accuracy: Top  7  Accuracy=  58.1027667984  %
+Test Accuracy: Top  8  Accuracy=  61.0671936759  %
+Test Accuracy: Top  9  Accuracy=  64.0316205534  %
+Test Accuracy: Top  10  Accuracy=  66.2055335968  %
+
+Section :  questions-capital-world  Section Size:  4524
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.0  %
+Test Accuracy: Top  2  Accuracy=  2.96198054819  %
+Test Accuracy: Top  3  Accuracy=  13.9920424403  %
+Test Accuracy: Top  4  Accuracy=  21.9938107869  %
+Test Accuracy: Top  5  Accuracy=  27.9398762157  %
+Test Accuracy: Top  6  Accuracy=  33.2228116711  %
+Test Accuracy: Top  7  Accuracy=  37.7984084881  %
+Test Accuracy: Top  8  Accuracy=  40.9372236958  %
+Test Accuracy: Top  9  Accuracy=  43.8549955791  %
+Test Accuracy: Top  10  Accuracy=  46.3527851459  %
+
+Section :  questions-currency  Section Size:  866
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.0  %
+Test Accuracy: Top  2  Accuracy=  0.692840646651  %
+Test Accuracy: Top  3  Accuracy=  7.15935334873  %
+Test Accuracy: Top  4  Accuracy=  10.2771362587  %
+Test Accuracy: Top  5  Accuracy=  12.0092378753  %
+Test Accuracy: Top  6  Accuracy=  13.2794457275  %
+Test Accuracy: Top  7  Accuracy=  14.2032332564  %
+Test Accuracy: Top  8  Accuracy=  15.2424942263  %
+Test Accuracy: Top  9  Accuracy=  16.0508083141  %
+Test Accuracy: Top  10  Accuracy=  16.6281755196  %
+
+Section :  questions-city-in-state  Section Size:  2467
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.0  %
+Test Accuracy: Top  2  Accuracy=  0.0  %
+Test Accuracy: Top  3  Accuracy=  0.770166193758  %
+Test Accuracy: Top  4  Accuracy=  1.62140251317  %
+Test Accuracy: Top  5  Accuracy=  2.31049858127  %
+Test Accuracy: Top  6  Accuracy=  3.24280502635  %
+Test Accuracy: Top  7  Accuracy=  4.25618159708  %
+Test Accuracy: Top  8  Accuracy=  5.18848804216  %
+Test Accuracy: Top  9  Accuracy=  5.75597892177  %
+Test Accuracy: Top  10  Accuracy=  6.56668017835  %
+
+Section :  questions-family  Section Size:  506
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  4.74308300395  %
+Test Accuracy: Top  2  Accuracy=  41.1067193676  %
+Test Accuracy: Top  3  Accuracy=  55.3359683794  %
+Test Accuracy: Top  4  Accuracy=  60.4743083004  %
+Test Accuracy: Top  5  Accuracy=  64.2292490119  %
+Test Accuracy: Top  6  Accuracy=  66.2055335968  %
+Test Accuracy: Top  7  Accuracy=  69.1699604743  %
+Test Accuracy: Top  8  Accuracy=  70.7509881423  %
+Test Accuracy: Top  9  Accuracy=  72.7272727273  %
+Test Accuracy: Top  10  Accuracy=  74.5059288538  %
+
+Section :  questions-gram1-adjective-to-adverb  Section Size:  992
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.0  %
+Test Accuracy: Top  2  Accuracy=  1.51209677419  %
+Test Accuracy: Top  3  Accuracy=  6.55241935484  %
+Test Accuracy: Top  4  Accuracy=  9.77822580645  %
+Test Accuracy: Top  5  Accuracy=  11.7943548387  %
+Test Accuracy: Top  6  Accuracy=  13.3064516129  %
+Test Accuracy: Top  7  Accuracy=  14.9193548387  %
+Test Accuracy: Top  8  Accuracy=  17.2379032258  %
+Test Accuracy: Top  9  Accuracy=  19.1532258065  %
+Test Accuracy: Top  10  Accuracy=  20.6653225806  %
+
+Section :  questions-gram2-opposite  Section Size:  812
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.369458128079  %
+Test Accuracy: Top  2  Accuracy=  10.3448275862  %
+Test Accuracy: Top  3  Accuracy=  26.9704433498  %
+Test Accuracy: Top  4  Accuracy=  33.0049261084  %
+Test Accuracy: Top  5  Accuracy=  37.1921182266  %
+Test Accuracy: Top  6  Accuracy=  40.0246305419  %
+Test Accuracy: Top  7  Accuracy=  42.6108374384  %
+Test Accuracy: Top  8  Accuracy=  44.0886699507  %
+Test Accuracy: Top  9  Accuracy=  45.4433497537  %
+Test Accuracy: Top  10  Accuracy=  46.6748768473  %
+
+Section :  questions-gram3-comparative  Section Size:  1332
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  10.1351351351  %
+Test Accuracy: Top  2  Accuracy=  67.1171171171  %
+Test Accuracy: Top  3  Accuracy=  82.957957958  %
+Test Accuracy: Top  4  Accuracy=  87.8378378378  %
+Test Accuracy: Top  5  Accuracy=  89.1141141141  %
+Test Accuracy: Top  6  Accuracy=  89.7897897898  %
+Test Accuracy: Top  7  Accuracy=  90.2402402402  %
+Test Accuracy: Top  8  Accuracy=  90.7657657658  %
+Test Accuracy: Top  9  Accuracy=  91.0660660661  %
+Test Accuracy: Top  10  Accuracy=  91.3663663664  %
+
+Section :  questions-gram4-superlative  Section Size:  1122
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  1.06951871658  %
+Test Accuracy: Top  2  Accuracy=  18.7165775401  %
+Test Accuracy: Top  3  Accuracy=  46.6131907308  %
+Test Accuracy: Top  4  Accuracy=  57.9322638146  %
+Test Accuracy: Top  5  Accuracy=  62.9233511586  %
+Test Accuracy: Top  6  Accuracy=  66.577540107  %
+Test Accuracy: Top  7  Accuracy=  68.8057040998  %
+Test Accuracy: Top  8  Accuracy=  70.6773618538  %
+Test Accuracy: Top  9  Accuracy=  72.9055258467  %
+Test Accuracy: Top  10  Accuracy=  74.2424242424  %
+
+Section :  questions-gram5-present-participle  Section Size:  1056
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  1.13636363636  %
+Test Accuracy: Top  2  Accuracy=  44.7916666667  %
+Test Accuracy: Top  3  Accuracy=  63.6363636364  %
+Test Accuracy: Top  4  Accuracy=  69.9810606061  %
+Test Accuracy: Top  5  Accuracy=  73.7689393939  %
+Test Accuracy: Top  6  Accuracy=  76.6098484848  %
+Test Accuracy: Top  7  Accuracy=  78.5037878788  %
+Test Accuracy: Top  8  Accuracy=  79.9242424242  %
+Test Accuracy: Top  9  Accuracy=  81.1553030303  %
+Test Accuracy: Top  10  Accuracy=  82.1022727273  %
+
+Section :  questions-gram6-nationality-adjective  Section Size:  1599
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  20.5128205128  %
+Test Accuracy: Top  2  Accuracy=  58.4740462789  %
+Test Accuracy: Top  3  Accuracy=  75.6722951845  %
+Test Accuracy: Top  4  Accuracy=  82.8642901814  %
+Test Accuracy: Top  5  Accuracy=  85.6160100063  %
+Test Accuracy: Top  6  Accuracy=  88.1801125704  %
+Test Accuracy: Top  7  Accuracy=  89.4308943089  %
+Test Accuracy: Top  8  Accuracy=  90.306441526  %
+Test Accuracy: Top  9  Accuracy=  90.9943714822  %
+Test Accuracy: Top  10  Accuracy=  91.3696060038  %
+
+Section :  questions-gram7-past-tense  Section Size:  1560
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  2.69230769231  %
+Test Accuracy: Top  2  Accuracy=  48.5256410256  %
+Test Accuracy: Top  3  Accuracy=  65.4487179487  %
+Test Accuracy: Top  4  Accuracy=  71.2820512821  %
+Test Accuracy: Top  5  Accuracy=  74.8717948718  %
+Test Accuracy: Top  6  Accuracy=  77.6282051282  %
+Test Accuracy: Top  7  Accuracy=  79.2307692308  %
+Test Accuracy: Top  8  Accuracy=  80.641025641  %
+Test Accuracy: Top  9  Accuracy=  82.0512820513  %
+Test Accuracy: Top  10  Accuracy=  82.8205128205  %
+
+Section :  questions-gram8-plural  Section Size:  1332
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  0.225225225225  %
+Test Accuracy: Top  2  Accuracy=  46.1711711712  %
+Test Accuracy: Top  3  Accuracy=  64.4144144144  %
+Test Accuracy: Top  4  Accuracy=  69.6696696697  %
+Test Accuracy: Top  5  Accuracy=  72.8228228228  %
+Test Accuracy: Top  6  Accuracy=  75.6006006006  %
+Test Accuracy: Top  7  Accuracy=  76.8768768769  %
+Test Accuracy: Top  8  Accuracy=  78.1531531532  %
+Test Accuracy: Top  9  Accuracy=  79.3543543544  %
+Test Accuracy: Top  10  Accuracy=  80.4804804805  %
+
+Section :  questions-gram9-plural-verbs  Section Size:  870
+---------------------------------------------------
+Test Accuracy: Top  1  Accuracy=  3.79310344828  %
+Test Accuracy: Top  2  Accuracy=  49.6551724138  %
+Test Accuracy: Top  3  Accuracy=  64.9425287356  %
+Test Accuracy: Top  4  Accuracy=  72.7586206897  %
+Test Accuracy: Top  5  Accuracy=  77.4712643678  %
+Test Accuracy: Top  6  Accuracy=  78.9655172414  %
+Test Accuracy: Top  7  Accuracy=  80.6896551724  %
+Test Accuracy: Top  8  Accuracy=  82.4137931034  %
+Test Accuracy: Top  9  Accuracy=  83.3333333333  %
+Test Accuracy: Top  10  Accuracy=  83.5632183908  %

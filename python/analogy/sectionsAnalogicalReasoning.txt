@@ -1,0 +1,14 @@
+506 questions-capital-common-countries
+4524 questions-capital-world
+866 questions-currency
+2467 questions-city-in-state
+506 questions-family
+992 questions-gram1-adjective-to-adverb
+812 questions-gram2-opposite
+1332 questions-gram3-comparative
+1122 questions-gram4-superlative
+1056 questions-gram5-present-participle
+1599 questions-gram6-nationality-adjective
+1560 questions-gram7-past-tense
+1332 questions-gram8-plural
+870 questions-gram9-plural-verbs
