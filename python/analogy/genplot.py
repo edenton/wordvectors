@@ -1,6 +1,13 @@
 #generate plots
 import cPickle as pickle
 import matplotlib.pyplot as plt
+import numpy as np
+plt.rc('xtick', labelsize=15) 
+plt.rc('ytick', labelsize=15) 
+plt.rcParams['legend.loc'] = 'best'
+plt.rcParams['legend.fontsize'] = 17
+from matplotlib.backends.backend_pdf import PdfPages
+plt.rcParams['figure.figsize'] = 35, 15
 
 f = open('cbow-analogy.pickle','rb')
 data_cbow = pickle.load(f)
@@ -14,15 +21,28 @@ f = open('GoogleVec-analogy.pickle','rb')
 data_googlevec= pickle.load(f)
 f.close()
 
-data = [() for (a,b,c) in izip(data_googlevec,data_cbow,data_skip_gram)]
 
-sections = [t.strip().split(' ')[1] for t in open('sectionsAnalogicalReasoning.txt').readlines()]
 
+s_num = 421
+sections_picked = [3,6,7,8,9,10,11,12]
+sectionNames = [t.strip().split(' ')[1] for t in open('sectionsAnalogicalReasoning.txt').readlines()]
 
 plt.figure(1)
-plt.subplot(211)
-plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+x_axis = range(11)
+plt.title('Top K Accuracy on Sections in Analogical Reasoning')
 
-plt.subplot(212)
-plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+
+for idx in range(len(sections_picked)):
+	print "Plotting in ",s_num+idx
+	plt.subplot(s_num+idx)
+	plt.plot(x_axis, np.array(data_googlevec[sections_picked[idx]+1]), 'b',label='googleVec')
+	plt.plot(x_axis, np.array(data_cbow[sections_picked[idx]+1]), 'r',label='cbow')
+	plt.plot(x_axis, np.array(data_skip_gram[sections_picked[idx]+1]), 'g',label='skip-gram')
+	plt.title(sectionNames[idx].split("questions-")[1])
+	plt.legend()
+
+
+pp = PdfPages('sections-results.pdf')
+plt.savefig(pp,format='pdf')
+pp.close()
 plt.show()
