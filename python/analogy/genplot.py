@@ -2,10 +2,10 @@
 import cPickle as pickle
 import matplotlib.pyplot as plt
 import numpy as np
-plt.rc('xtick', labelsize=15) 
-plt.rc('ytick', labelsize=15) 
+plt.rc('xtick', labelsize=17) 
+plt.rc('ytick', labelsize=17) 
 plt.rcParams['legend.loc'] = 'best'
-plt.rcParams['legend.fontsize'] = 17
+plt.rcParams['legend.fontsize'] = 25
 from matplotlib.backends.backend_pdf import PdfPages
 plt.rcParams['figure.figsize'] = 35, 15
 
@@ -38,7 +38,9 @@ for idx in range(len(sections_picked)):
 	plt.plot(x_axis, np.array(data_googlevec[sections_picked[idx]+1]), 'b',label='googleVec')
 	plt.plot(x_axis, np.array(data_cbow[sections_picked[idx]+1]), 'r',label='cbow')
 	plt.plot(x_axis, np.array(data_skip_gram[sections_picked[idx]+1]), 'g',label='skip-gram')
-	plt.title(sectionNames[idx].split("questions-")[1])
+	plt.title(sectionNames[idx].split("questions-")[1],fontsize=30)
+	plt.xlabel('k',fontsize=17)
+	plt.ylabel('% Accuracy',fontsize=22)
 	plt.legend()
 
 
