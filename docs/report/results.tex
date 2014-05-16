@@ -1,0 +1,67 @@
+
+\section{Experimental results}
+
+\subsection{Data}
+
+\subsubsection{Training data}
+
+\subsubsection{Test data}
+\cite{mikolov3} propose evaluating the regularities of the learned embedding space with a test set of analogy questions. the questions are of the form "{\it a} is to {\it b} as {\it c} is to \_\_ ". The test set contains 14 different types of analogies (see Table \ref{table:analogical}) relating to semantic concepts and grammatical relations. 
+
+\begin{table}[h]
+	\caption{Analogical reasoning test set}
+	\label{table:analogical}
+	\centering
+    \begin{tabular}{| c |  c | c |}
+    \hline
+    {\bf Relation} & {\bf \# Questions} & {\bf Example} \\
+    \hline
+     capital-common-countries & 506 & Athens : Greece \\
+     & & Bangkok : Thailand\\
+     \hline
+    capital-world &   4524  & Abuja : Nigeria \\
+    & & Accra : Ghana\\
+    \hline
+    currency & 866 & Algeria : dinar\\
+    & & Japan : yen\\
+   \hline
+    family & 2467 & brother : sister \\
+    & & mother : father\\
+    \hline
+    adjective-to-adverb & 506 & amazing : amazingly \\
+    & & calm : calmly\\
+    \hline
+    opposite & 992 & acceptable : unacceptable \\
+    & & aware : unaware\\
+    \hline
+    comparative & 813 & bad : worse \\
+    & & big : bigger\\
+    \hline
+    superlative & 1331 & bad : worst \\
+    & & big : biggest\\
+    \hline
+    present-participle & 1122 & code : coding\\
+    & & dance : dancing\\
+    \hline
+    nationality-adjective & 1056 & Albania : Albanian \\
+    & & Argentina : Argentinean\\
+    \hline
+    past-tense & 1599 & dancing : danced \\
+    & & decreasing : decreased\\
+    \hline
+    plural & 1560 & banana : bananas \\
+    & & bird birds\\
+    \hline
+    plural-verbs & 1332 & eat : eats \\
+    & & generate : generates\\
+    \hline
+    \end{tabular}
+\end{table}
+
+
+\subsection{Results}
+
+\subsubsection{Measuring linguistic regularity via analogies}
+\subsubsection{Visualizing low dimensional approximations of embedding space}
+
+\subsubsection{Finding analogical relations}
