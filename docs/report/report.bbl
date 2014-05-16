@@ -16,11 +16,6 @@ Mikolov, T., tau Yih, W., Zweig, G.:
 \newblock Linguistic regularities in continuous space word representations.
 \newblock HLT-NAACL (2013)
 
-\bibitem{mikolov4}
-Mikolov, T., Le, Q.V., Sutskever, I.:
-\newblock Exploiting similarities among languages for machine translation.
-\newblock CoRR \textbf{abs/1309.4168} (2013)
-
 \bibitem{bengio}
 Bengio, Y., Ducharme, R., Vincent, P., Jauvin, C.:
 \newblock A neural probabilistic language model.
@@ -30,5 +25,10 @@ Bengio, Y., Ducharme, R., Vincent, P., Jauvin, C.:
 Mikolov, T., Karafiát, M., Burget, L., Cernocký, J., Khudanpur, S.:
 \newblock Recurrent neural network based language model.
 \newblock INTERSPEECH (2010)
+
+\bibitem{mikolov4}
+Mikolov, T., Le, Q.V., Sutskever, I.:
+\newblock Exploiting similarities among languages for machine translation.
+\newblock CoRR \textbf{abs/1309.4168} (2013)
 
 \end{thebibliography}
