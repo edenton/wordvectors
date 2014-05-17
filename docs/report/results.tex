@@ -71,7 +71,7 @@ We evaluate the performance of (a) pre-trained Google vectors, (b) our Skip-Gram
 \item Compute the vector representations of each word, $\phi(A), \phi(B), \phi(C)$.
 \item Let $v = \phi(B) - \phi(A) + \phi(C)$.
 \item Do a nearest neighbors search, based on cosine distance, to find the $k$ closest word vectors to $v$. In other words, solve for the top $k$ solutions to 
-	\begin{align} \max_u\frac{ v \cdot u}{\| u \| \| v \|}\ \end{align}
+	\begin{align} \max_u 1 - \frac{ v \cdot u}{\| u \| \| v \|}\ \end{align}
 \end{enumerate}
 
 The top-$k$ accuracy is defined as the number of times $D$ appears in the set of $k$ closest words to $v$. The intuition behind this method is that the cosine distance between $\phi(A - B)$ and $\phi(C - D)$ is small when {\it A} and {\it B} are analogous to {\it C} and {\it D}. Figure \ref{fig:offsets} illustrates this intuition. 
@@ -161,6 +161,12 @@ Figure \ref{fig:offsetProj} shows for of these such plots using country-capital 
 
 One could imagine constructing a new method of answering the analogical query questions using this information by first restricting the set of possible solution vectors to only the $p$ closest ones to the plane and then doing the top-$k$ search for a solution. We tried this experiment for a variety of $k$ and $p$ and did not find it to perform better than the original method. This is to be expected given the huge amount of information that is being thrown away. However, it is interesting that the method does allow some questions to be answered correctly. We achieved a 30\% top-5 accuracy for $p = 20$, which means that a significant amount of information is retained after projecting down into 2 dimensions.  
 
-
-
 \subsubsection{Finding analogical relations}
+
+Our final goal was to try and uncover analogical relation automatically. Our approach to this is based on the basic insight that the cosine distance for pairs of offsets will be small if the pairs are analogous. In other words we would expect 
+\begin{align}1 - \frac{(\phi(brother) - \phi(sister)) \cdot (\phi(father) - \phi(mother))}{ \| \phi(brother) - \phi(sister)) \| \| (\phi(father) - \phi(mother)\|}\end{align}
+while we would expect 
+ \begin{align}1 - \frac{(\phi(cat) - \phi(sister)) \cdot (\phi(running) - \phi(Canada))}{ \| \phi(cat) - \phi(sister)) \| \| (\phi(running) - \phi(Canada)\|}\end{align} 
+ to be large. 
+
+We attempted to cluster word vector offsets based on cosine distance.We tried two methods: (1) Spectral clustering where the cosine distance between offsets is used as the affinity matrix (2) K-means there cosine distance is used as the distance metric. 
