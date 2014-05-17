@@ -164,9 +164,9 @@ One could imagine constructing a new method of answering the analogical query qu
 \subsubsection{Finding analogical relations}
 
 Our final goal was to try and uncover analogical relation automatically. Our approach to this is based on the basic insight that the cosine distance for pairs of offsets will be small if the pairs are analogous. In other words we would expect 
-\begin{align}1 - \frac{(\phi(brother) - \phi(sister)) \cdot (\phi(father) - \phi(mother))}{ \| \phi(brother) - \phi(sister)) \| \| (\phi(father) - \phi(mother)\|}\end{align}
+\begin{align*}1 - \frac{(\phi(brother) - \phi(sister)) \cdot (\phi(father) - \phi(mother))}{ \| \phi(brother) - \phi(sister)) \| \| (\phi(father) - \phi(mother)\|}\end{align*}
 while we would expect 
- \begin{align}1 - \frac{(\phi(cat) - \phi(sister)) \cdot (\phi(running) - \phi(Canada))}{ \| \phi(cat) - \phi(sister)) \| \| (\phi(running) - \phi(Canada)\|}\end{align} 
+ \begin{align*}1 - \frac{(\phi(cat) - \phi(sister)) \cdot (\phi(running) - \phi(Canada))}{ \| \phi(cat) - \phi(sister)) \| \| (\phi(running) - \phi(Canada)\|}\end{align*} 
  to be large. 
 
 We attempted to cluster word vector offsets based on cosine distance.We tried two methods: (1) Spectral clustering where the cosine distance between offsets is used as the affinity matrix (2) K-means there cosine distance is used as the distance metric. 

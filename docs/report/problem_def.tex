@@ -3,35 +3,28 @@
 
 \subsection{Learning a word embedding space}
 
-In order to learn an embedding of words into vector spaces, we use the training code provided by Mikolov et. al. in word2vec\cite{word2vec}. While the original paper is short on some details, this writeup\cite{word2vec_explained} uncovers some other more esoteric portions of the paper.
+In order to learn an embedding of words into a vector space, we use the training code provided by Mikolov \etal in word2vec\cite{word2vec}. There are two different models, the Skip-Gram model and the Continuous Bag of words (CBOW) model. Both models consist of a projection layer followed by a softmax layer. They differ in the precise inputs and outputs used. The training data for both models consists of a sequence of words, $w_1, w_2, ..., w_N$. Let $M$ denote the size of the vocabulary (i.e. the number of distinct words in the entire training sequence). We described each of them in turn. 
 
 \subsubsection{Skip Gram}
-This model aims to predict the context given the current word. 
+The Skip-Gram model takes a single word as input and aims to predict the surrounding words, where the order of the surrounding words matters. More specifically, we want to find the parameters $W$ which maximize the conditional log probability of the context of a given word:
 
-More specifically, we want to maximize the probability of the corpus given the following factorization:
-\begin{equation}
-	argmax_{\theta} \prod_{w\in text} [\prod_{c\in C(w)} p(c|w;\theta)]
-\end{equation}
-where $C(w)$ is the context of the word (we set the context to be 12). The above says that we want to maximize the parameters theta such that the we maximize the conditional probability of the context of a given word. 
+\begin{align*}
+	\arg \max_{W} \sum_{n=1}^{N} [\sum_{-c \leq t \leq c; t \neq n} \log p(w_{n+c} | w_n; W)]
+\end{align*}
+where $c$ is the size of the context window being considered (in our experiments we set c = 6). 
 
-The parameterization used to model $p(c|w;\theta) = \frac{v_{c}v_w}{\sum_{c'\in C }e^{v_{c'}v_w}}$ is a soft-max layer. 
-
-
-Note that 
-
-$v_i = W^T I(word_i) \;\;\; \forall words \;\; i$ 
+The output probability is given by
+\begin{align*}
+p(w_{O} | w_{I}; W) = \frac{ \exp \big(\phi(w_O) \cdot \phi(w_I) \big)}{\sum_{j=1}^M \exp \big(\phi(w_j) \cdot \phi(w_I) \big)}
+\end{align*}
 
 
-is the projection of the $1-of-|V|$ representation of the word where the weights of the matrix $W$ are learned during training. 
-
-Intuitively, the above formalization of the problem aims to maximize the likelihood of every word in the context independent of each another. The final vector representations of the words are derived from the matrix $W$
+where $\phi(w_i) = W^{\top}x_i$ is the vector representation of $w_i$ (letting $x_i$ denote the 1-hot input vector for with i). The weights $W$ are learned via gradient descent. After training, the final vector representations, $\phi(w_i) \forall i$, are computed front he matrix $W$.
 
 
 
 \subsubsection{Continuous Bag of Words (CBOW)}
-Unlike the skip gram model, the continuous bag of words makes a bag of words assumption by summing up the projections of the context for a given word and trying to predict the word. 
-
-We have that:
+Unlike the skip gram model, the continuous bag of words makes a bag of words assumption by summing up the projections of the context for a given word and trying to predict the word. More specifically, we want to find the parameters $W$ that maximize the conditional log probability of a word, given the surround words. 
 \begin{equation}
 	argmax_{\theta} \prod_{w\in text} p(w|k;\theta) \text{ where } k = \sum_{c \in C(w)} v_c
 \end{equation}
