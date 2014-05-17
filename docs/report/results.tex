@@ -2,8 +2,11 @@
 \section{Experimental results}
 
 \subsection{Data}
+The data for our experiments came from two sources. The first was a set of word vectors released by Google\cite{word2vec}. These were vectors that were trained using a skip-gram model on Google's internal dataset. We trained our own set of vectors using both the CBOW and Skip-Gram models on a corpus described below. While we did conduct experiments on the three models mentioned above, we noticed that the vectors created by Google gave better results on every section of the analogical reasoning dataset and therefore further work was done primarily using those vectors. 
 
 \subsubsection{Training data}
+The training data was created by appending several sources of text that were freely available on the web such as the English text of Wikipedia, NewsCrawl (which contains several thousands of news articles collected across the years), text8 and Europarl (which contains transcriptions of the proceedings of the European parliament).
+
 
 \subsubsection{Test data}\label{sec:test_data}
 Mikolov \etal \cite{mikolov3} propose evaluating the regularities of the learned embedding space with a test set of analogy questions. The questions are of the form "{\it a} is to {\it b} as {\it c} is to \_\_ ". The test set contains 14 different types of analogies (see Table \ref{table:analogical}) relating to semantic concepts and grammatical relations. 
